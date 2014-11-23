@@ -4,33 +4,42 @@ package me.abnerlee.wechatAPI;
  * Created by Administrator on 14-11-23.
  */
 public class WechatReceiveData {
-
     /**
-     * 现在已有的字段名称
+     * 接收来自微信的消息
+     * 图片，语音，视频，地理位置，链接，点击事件
      */
+
+    // 所有接口共有字段
     private String ToUserName = "";
     private String FromUserName = "";
     private String CreateTime = "";
     private String MsgType = "";
     private String MsgId = "";
-    private String Event = "";
-    private String EventKey = "";
-    private String Ticket = "";
-    private String Latitude = "";
-    private String Longitude = "";
-    private String Precision = "";
-    private String PicUrl = "";
-    private String MediaId = "";
-    private String Title = "";
-    private String Description = "";
-    private String Url = "";
-    private String Location_X = "";
-    private String Location_Y = "";
-    private String Scale = "";
-    private String Label = "";
-    private String Content = "";
-    private String Format = "";
+
+    // 普通消息
+    private String Content = "";  // 文字消息
+    private String PicUrl = "";  // 图片消息
+    private String MediaId = "";  // 图片消息，语音消息，视频消息
+    private String Format = "";  // 语音消息
+    private String ThumbMediaId = "";  // 视频消息
+    private String Location_X = "";  // 地理位置
+    private String Location_Y = "";  // 地理位置
+    private String Scale = "";  // 地理位置
+    private String Label = "";  // 地理位置
+    private String Title = "";  // 链接消息
+    private String Description = "";  // 链接消息
+    private String Url = "";  // 链接消息
+
+    // 事件推送
+    private String Event = "";  // 事件推送事件都有的
+    private String EventKey = "";  //扫描带参数二维码事件, 点击菜单拉取消息时的事件推送
+    private String Ticket = "";  //扫描带参数二维码事件
+    private String Latitude = "";  //上报地理位置事件
+    private String Longitude = "";  //上报地理位置事件
+    private String Precision = "";  //上报地理位置事件
+
     private String Recognition = "";
+
 
     public String getRecognition() {
         return Recognition;
