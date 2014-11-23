@@ -1,9 +1,12 @@
 package me.abnerlee.wechatAPI;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.Iterator;
 
+import org.apache.commons.io.IOUtils;
 import org.dom4j.Document;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
@@ -45,6 +48,17 @@ public class WechatReceiveDataParser {
             return null;
         }
         return msg;
+    }
+
+    public static WechatReceiveData getMsgEntity(InputStream is) {
+        String body = null;
+        try {
+            body = IOUtils.toString(is);
+        } catch (IOException e) {
+            e.printStackTrace();
+            body = "";
+        }
+        return getMsgEntity(body);
     }
 
 }
