@@ -40,6 +40,12 @@
             <artifactId>dom4j</artifactId>
             <version>1.7-20060614</version>
         </dependency>
+        <!--读取request的body时使用-->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.4</version>
+        </dependency>
     </dependencies>
 
 
