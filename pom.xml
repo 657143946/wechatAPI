@@ -34,6 +34,12 @@
             <artifactId>jackson-mapper-asl</artifactId>
             <version>1.9.13</version>
         </dependency>
+        <!--解析xml使用-->
+        <dependency>
+            <groupId>maven</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>1.7-20060614</version>
+        </dependency>
     </dependencies>
 
 
