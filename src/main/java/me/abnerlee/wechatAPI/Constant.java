@@ -12,4 +12,8 @@ public class Constant {
     public final static String TOKEN = constantMap.get("token");
     public final static String APPID = constantMap.get("appid");
     public final static String APPSECRET = constantMap.get("appsecret");
+    public final static String ACCESS_TOKEN_URL =
+            constantMap.get("access_token_url") == null? "https://api.weixin.qq.com/cgi-bin/token": constantMap.get("access_token_url");
+    public final static String IP_LIST_URL =
+            constantMap.get("ip_list_url") == null? "https://api.weixin.qq.com/cgi-bin/getcallbackip": constantMap.get("ip_list_url");
 }

@@ -1,4 +1,5 @@
 import me.abnerlee.wechatAPI.Constant;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -8,9 +9,9 @@ public class ConstantTest {
 
     @Test
     public void testConstantRead(){
-        System.out.println(Constant.TOKEN);
-        System.out.println(Constant.APPID);
-        System.out.println(Constant.APPSECRET);
+        Assert.assertTrue(Constant.TOKEN != null);
+        Assert.assertTrue(Constant.APPID != null);
+        Assert.assertTrue(Constant.APPSECRET != null);
     }
 
 }
