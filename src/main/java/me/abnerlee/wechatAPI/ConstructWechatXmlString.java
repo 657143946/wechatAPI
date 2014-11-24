@@ -111,9 +111,6 @@ public class ConstructWechatXmlString {
     public static String getTextXml(String to, String from, String content){
         return MessageFormat.format(TEXT_XML_TEMPLATE, to, from, Timer.getCurrentTimestampMillis()/1000, content);
     }
-    public static String getTextXml(String to, String content){
-        return getTextXml(to, Constant.APPID, content);
-    }
 
     /**
      * 图片消息
@@ -121,18 +118,12 @@ public class ConstructWechatXmlString {
     public static String getPictureXml(String to, String from, String mediaId){
         return MessageFormat.format(PICTURE_XML_TEMPLATE, to, from, Timer.getCurrentTimestampMillis()/1000, mediaId);
     }
-    public static String getPictureXml(String to, String mediaId){
-        return getPictureXml(to, Constant.APPID, mediaId);
-    }
 
     /**
      * 语音消息
      */
     public static String getVoiceXmlTemplate(String to, String from, String mediaId){
         return MessageFormat.format(VOICE_XML_TEMPLATE, to, from, Timer.getCurrentTimestampMillis()/1000, mediaId);
-    }
-    public static String getVoiceXmlTemplate(String to, String mediaId){
-        return getVoiceXmlTemplate(to, Constant.APPID, mediaId);
     }
 
     /**
@@ -142,9 +133,6 @@ public class ConstructWechatXmlString {
         return MessageFormat.format(VOICE_XML_TEMPLATE, to, from,
                 Timer.getCurrentTimestampMillis()/1000, mediaId, title, desc);
     }
-    public static String getVideoXml(String to, String mediaId, String title, String desc){
-        return getVideoXml(to, Constant.APPID, mediaId, title, desc);
-    }
 
     /**
      * 音乐消息
@@ -152,9 +140,6 @@ public class ConstructWechatXmlString {
     public static String getMusicXml(String to, String from, String mediaId, String title, String desc){
         return MessageFormat.format(MUSIC_XML_TEMPLATE, to, from,
                 Timer.getCurrentTimestampMillis()/1000, mediaId, title, desc);
-    }
-    public static String getMusicXml(String to, String mediaId, String title, String desc){
-        return getMusicXml(to, Constant.APPID, mediaId, title, desc);
     }
 
     /**
