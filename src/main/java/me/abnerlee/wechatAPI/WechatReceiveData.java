@@ -40,6 +40,13 @@ public class WechatReceiveData {
 
     private String Recognition = "";
 
+    public String getThumbMediaId() {
+        return ThumbMediaId;
+    }
+
+    public void setThumbMediaId(String thumbMediaId) {
+        ThumbMediaId = thumbMediaId;
+    }
 
     public String getRecognition() {
         return Recognition;
