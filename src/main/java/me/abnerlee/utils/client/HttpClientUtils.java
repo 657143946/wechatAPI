@@ -3,7 +3,12 @@ package me.abnerlee.utils.client;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.multipart.FilePart;
+import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
+import org.apache.commons.httpclient.methods.multipart.Part;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -23,7 +28,7 @@ public class HttpClientUtils {
         System.out.println(body);
     }
 
-    public static String request(String url, Map<String, String> getData, Map<String, String> postData){
+    public static String request(String url, Map<String, String> getData, Map<String, String> postData, File... files){
         HttpClient client=new HttpClient();
         /**整理URL**/
         if (!url.contains("http://") && !url.contains("https://")){
@@ -53,6 +58,21 @@ public class HttpClientUtils {
                 String value = postData.get(key);
                 postMethod.addParameter(key, value);
             }
+        }
+
+        /**加入文件**/
+        if (files != null && files.length != 0){
+            Part[] parts = new Part[files.length];
+            for (int i=0; i < files.length; i++){
+                try {
+                    parts[i] = new FilePart("file"+i, files[i]);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                    return null;
+                }
+            }
+            MultipartRequestEntity mre = new MultipartRequestEntity(parts, postMethod.getParams());
+            postMethod.setRequestEntity(mre);
         }
 
         /**请求**/
