@@ -16,4 +16,7 @@ public class Constant {
             constantMap.get("access_token_url") == null? "https://api.weixin.qq.com/cgi-bin/token": constantMap.get("access_token_url");
     public final static String IP_LIST_URL =
             constantMap.get("ip_list_url") == null? "https://api.weixin.qq.com/cgi-bin/getcallbackip": constantMap.get("ip_list_url");
+    public final static String MEDIA_UPLOAD_URL =
+            constantMap.get("media_upload_url") == null? "http://file.api.weixin.qq.com/cgi-bin/media/upload": constantMap.get("media_upload_url");
+
 }
