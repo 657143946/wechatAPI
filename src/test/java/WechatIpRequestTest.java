@@ -1,4 +1,4 @@
-import me.abnerlee.wechatAPI.WechatIpRequest;
+import me.abnerlee.wechatAPItest.WechatIpRequest;
 import org.junit.Assert;
 import org.junit.Test;
 
