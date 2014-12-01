@@ -1,7 +1,7 @@
 package me.abnerlee.wechatAPI.xml_template;
 
 /**
- * Created by Abner on 14-12-1.
+ * Created by AbnerLee on 14-12-1.
  */
 
 /**
