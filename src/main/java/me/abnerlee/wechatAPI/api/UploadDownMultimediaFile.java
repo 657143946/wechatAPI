@@ -42,7 +42,7 @@ public class UploadDownMultimediaFile {
      * @return json转化成map的map
      */
     public static Map<String, String> upload(File file) {
-        String accessToken = me.abnerlee.wechatAPItest.AccessTokenRequest.getAccessToken();
+        String accessToken = AccessTokenRequest.getAccessToken();
         String type = judgeMediaType(file);
         return upload(accessToken, type, file);
     }
@@ -101,7 +101,7 @@ public class UploadDownMultimediaFile {
      * @return String 下载链接
      */
     public static String down(String mediaId){
-        String accessToken = me.abnerlee.wechatAPItest.AccessTokenRequest.getAccessToken();
+        String accessToken = AccessTokenRequest.getAccessToken();
         return down(accessToken, mediaId);
     }
 
