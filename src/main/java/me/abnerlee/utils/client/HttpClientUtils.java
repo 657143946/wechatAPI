@@ -65,7 +65,9 @@ public class HttpClientUtils {
             Part[] parts = new Part[files.length];
             for (int i=0; i < files.length; i++){
                 try {
-                    parts[i] = new FilePart("file"+i, files[i]);
+                    if (files[i] != null){
+                        parts[i] = new FilePart("file"+i, files[i]);
+                    }
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                     return null;
