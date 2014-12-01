@@ -11,6 +11,10 @@ import java.util.Map;
 /**
  * Created by AbnerLee on 14-11-23.
  */
+
+/**
+ * 获取公众平台账号的accessToken
+ */
 public class AccessTokenRequest {
     public static String getAccessToken(){
         return getAccessToken(UrlConstant.ACCESS_TOKEN_URL);

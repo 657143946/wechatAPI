@@ -14,7 +14,7 @@ import java.util.Map;
  */
 
 /**
- * 上传下载媒体文件
+ * 上传下载媒体文件接口
  */
 public class UploadDownMultimediaFile {
 
@@ -104,5 +104,5 @@ public class UploadDownMultimediaFile {
         String accessToken = me.abnerlee.wechatAPItest.AccessTokenRequest.getAccessToken();
         return down(accessToken, mediaId);
     }
-    
+
 }
