@@ -2,6 +2,7 @@ package me.abnerlee.wechatAPI.api;
 
 import me.abnerlee.utils.client.HttpClientUtils;
 import me.abnerlee.utils.json.JsonConvert;
+import me.abnerlee.wechatAPI.constant.ConstantMap;
 import me.abnerlee.wechatAPI.constant.UrlConstant;
 
 import java.io.File;
@@ -90,7 +91,7 @@ public class UploadDownMultimediaFile {
      * @return String 下载链接
      */
     public static String down(String accessToken, String mediaId){
-        String downMediaUrlTemplate = "http://file.api.weixin.qq.com/cgi-bin/media/get?access_token={0}&media_id={1}";
+        String downMediaUrlTemplate = UrlConstant.MEDIA_DOWN_URL + "?access_token={0}&media_id={1}";
         String url = MessageFormat.format(downMediaUrlTemplate, accessToken, mediaId);
         return url;
     }
