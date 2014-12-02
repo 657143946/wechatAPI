@@ -45,4 +45,20 @@ public class UrlConstant {
                     "https://api.weixin.qq.com/cgi-bin/user/get":
                     ConstantMap.CONSTANT_MAP.get("user_list_url");
 
+    /**
+     * 群发接口，上传news信息的接口url
+     */
+    public final static String UPLOAD_NEWS_URL =
+            ConstantMap.CONSTANT_MAP.get("upload_news_url") == null?
+                    "https://api.weixin.qq.com/cgi-bin/media/uploadnews":
+                    ConstantMap.CONSTANT_MAP.get("upload_news_url");
+    /**
+     * 群发接口地址
+     */
+    public final static String BROADCAST_MSG_URL =
+            ConstantMap.CONSTANT_MAP.get("broadcast_msg_url") == null?
+                    "https://api.weixin.qq.com/cgi-bin/message/mass/send":
+                    ConstantMap.CONSTANT_MAP.get("broadcast_msg_url");
+
+
 }
