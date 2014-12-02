@@ -31,6 +31,9 @@ public class UrlConstant {
                     "http://file.api.weixin.qq.com/cgi-bin/media/upload":
                     ConstantMap.CONSTANT_MAP.get("media_upload_url");
 
+    /**
+     * 下载media的链接地址
+     */
     public final static String MEDIA_DOWN_URL =
             ConstantMap.CONSTANT_MAP.get("media_down_url") == null?
                     "http://file.api.weixin.qq.com/cgi-bin/media/get":
