@@ -5,6 +5,7 @@ import org.codehaus.jackson.type.TypeReference;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 14-8-30.
@@ -40,6 +41,17 @@ public class JsonConvert {
         }
 
         return map;
+    }
+
+    public static String mapToJson(Map<String, Object> map) {
+        ObjectMapper mapper = new ObjectMapper();
+        String json = null;
+        try {
+            json = mapper.writeValueAsString(map);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return json;
     }
 
 
