@@ -3,13 +3,16 @@ package me.abnerlee.utils.client;
 import org.apache.commons.httpclient.HttpClient;
 import org.apache.commons.httpclient.HttpException;
 import org.apache.commons.httpclient.methods.PostMethod;
+import org.apache.commons.httpclient.methods.StringRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.FilePart;
 import org.apache.commons.httpclient.methods.multipart.MultipartRequestEntity;
 import org.apache.commons.httpclient.methods.multipart.Part;
+import org.apache.commons.httpclient.methods.multipart.StringPart;
 
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -91,5 +94,68 @@ public class HttpClientUtils {
             return null;
         }
     }
+
+    public static String postJson(String url, Map<String, String> getData, Map<String, String> postData, String jsonStr){
+        HttpClient client=new HttpClient();
+        /**整理URL**/
+        if (!url.contains("http://") && !url.contains("https://")){
+            url = "http://" + url;
+        }
+
+        /**加入get参数**/
+        String getDataString = "";
+        if (getData != null){
+            for (String key: getData.keySet()){
+                String value = getData.get(key);
+                getDataString += key + "=" + value + "&";
+            }
+            getDataString = getDataString.substring(0, getDataString.length());
+        }
+        if (url.contains("?")){
+            url += "&" + getDataString;
+        }else {
+            url += "?" + getDataString;
+        }
+
+
+        /**加入post参数**/
+        PostMethod postMethod=new PostMethod(url);
+        if (postData != null){
+            for(String key: postData.keySet()){
+                String value = postData.get(key);
+                postMethod.addParameter(key, value);
+            }
+        }
+
+        /**加入json字符串**/
+        if (jsonStr != null){
+            StringRequestEntity requestEntity = null;
+            try {
+                requestEntity = new StringRequestEntity(
+                        jsonStr,
+                        "application/json",
+                        "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                System.out.println("postJson wrong: UnsupportedEncodingException");
+                e.printStackTrace();
+            }
+            postMethod.setRequestEntity(requestEntity);
+        }
+
+        /**请求**/
+        try{
+            client.executeMethod(postMethod);
+            String body = new String(postMethod.getResponseBody());
+            postMethod.releaseConnection();
+            return body;
+        }catch (HttpException e) {
+            e.printStackTrace();
+            return null;
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 
 }
