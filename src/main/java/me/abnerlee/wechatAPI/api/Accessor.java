@@ -1,7 +1,7 @@
 package me.abnerlee.wechatAPI.api;
 
-import me.abnerlee.utils.wechat.WechatTool;
-import me.abnerlee.wechatAPI.constant.AccountConstant;
+import me.abnerlee.constant.AccountConstant;
+import me.abnerlee.util.wechat.WechatTool;
 
 import javax.servlet.http.HttpServletRequest;
 

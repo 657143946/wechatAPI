@@ -1,8 +1,8 @@
 package me.abnerlee.wechatAPI.api;
 
-import me.abnerlee.utils.client.HttpClientUtils;
-import me.abnerlee.utils.json.JsonConvert;
-import me.abnerlee.wechatAPI.constant.UrlConstant;
+import me.abnerlee.constant.UrlConstant;
+import me.abnerlee.util.client.HttpClientUtils;
+import me.abnerlee.util.json.JsonConvert;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,24 +16,24 @@ import java.util.Map;
  * 微信服务器IP地址查询接口
  */
 public class IpAddressQuery {
-    public static List<String> getWechatIpList(String url, String accessToken){
+    public static List<String> getWechatIpList(String url, String accessToken) {
         Map<String, String> params = new HashMap<String, String>();
         params.put("access_token", accessToken);
 
-        Map<String, Object> body = JsonConvert.jsonToMapExtend(HttpClientUtils.request(url, params, null));
+        Map<String, Object> body = JsonConvert.jsonToMapExtend(HttpClientUtils.postParams(url, params, null));
         if (body.get("errmsg") != null) {
             System.out.println(body.get("errmsg"));
             return null;
         } else {
-            return (List<String>)body.get("ip_list");
+            return (List<String>) body.get("ip_list");
         }
     }
 
-    public static List<String> getWechatIpList(String accessToken){
+    public static List<String> getWechatIpList(String accessToken) {
         return getWechatIpList(UrlConstant.IP_LIST_URL, accessToken);
     }
 
-    public static List<String> getWechatIpList(){
-        return getWechatIpList(me.abnerlee.wechatAPItest.AccessTokenRequest.getAccessToken());
+    public static List<String> getWechatIpList() {
+        return getWechatIpList(AccessTokenRequest.getAccessToken());
     }
 }
