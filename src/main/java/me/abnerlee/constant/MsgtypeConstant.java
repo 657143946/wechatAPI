@@ -1,4 +1,4 @@
-package me.abnerlee.wechatAPI.constant;
+package me.abnerlee.constant;
 
 /**
  * Created by AbnerLee on 14-11-29.

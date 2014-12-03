@@ -1,4 +1,4 @@
-package me.abnerlee.wechatAPI.constant;
+package me.abnerlee.constant;
 
 /**
  * Created by AbnerLee on 14-12-1.
@@ -62,6 +62,15 @@ public class UrlConstant {
             ConstantMap.CONSTANT_MAP.get("broadcast_msg_url") == null?
                     "https://api.weixin.qq.com/cgi-bin/message/mass/send":
                     ConstantMap.CONSTANT_MAP.get("broadcast_msg_url");
+
+    /**
+     * 群发接口中申请调用视屏的URL
+     */
+    public final static String QUERY_MEDIA_ID_URL =
+            ConstantMap.CONSTANT_MAP.get("query_media_id_url") == null?
+                    "https://file.api.weixin.qq.com/cgi-bin/media/uploadvideo":
+                    ConstantMap.CONSTANT_MAP.get("query_media_id_url");
+
 
 
 }

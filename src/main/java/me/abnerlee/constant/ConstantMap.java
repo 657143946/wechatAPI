@@ -1,6 +1,7 @@
-package me.abnerlee.wechatAPI.constant;
+package me.abnerlee.constant;
 
-import me.abnerlee.utils.reader.PropertyReader;
+
+import me.abnerlee.util.reader.PropertyReader;
 
 import java.util.Map;
 
