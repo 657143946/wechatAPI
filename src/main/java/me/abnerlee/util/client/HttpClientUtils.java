@@ -233,4 +233,16 @@ public class HttpClientUtils {
         /**请求**/
         return executeRequest(postMethod);
     }
+
+    /**
+     * post json字符串
+     *
+     * @param url        url
+     * @param getParams  get参数
+     * @param postParams post参数
+     * @return String 请求返回后的body
+     */
+    public static String postParams(String url, Map<String, String> getParams, Map<String, String> postParams) {
+        return postJson(url, getParams, postParams, null);
+    }
 }
