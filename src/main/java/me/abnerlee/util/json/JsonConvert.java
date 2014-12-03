@@ -26,13 +26,13 @@ public class JsonConvert {
     public static <T> T jsonToObject(String json, T t) {
         checkMapper();
         try {
-            return mapper.readValue(json, new TypeReference<T>() {
+            t = mapper.readValue(json, new TypeReference<T>() {
             });
         } catch (IOException e) {
             logger.error("json转对象错误：" + e.getMessage());
             e.printStackTrace();
         }
-        return null;
+        return t;
     }
 
 
